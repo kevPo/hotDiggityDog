@@ -1,0 +1,21 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body ng-app="app" ng-controller="appCtrl as vm">
+    <div class="flex-container">
+        <div class="logo">Hot Diggity Dogs</div>
+        <div class="sub-logo">Workflow Creator</div>
+        <div class="input-container">
+            <input id="title" ng-model="vm.workflowTitle" placeholder="Enter yer workflow title here" type="text">
+        </div>
+        <div class="button-container">   
+            <button ng-click="vm.createWorkflow()">Add this thing to Qualtrax</button>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.30/angular.min.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/appCtrl.js"></script>
+</body>
+</html>
