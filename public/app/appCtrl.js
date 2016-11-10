@@ -11,6 +11,7 @@
         var vm = this;
         vm.workflowTitle = '';
         vm.createWorkflow = createWorkflow;
+        vm.createdWorkflows = [];
 
         activate();
 
@@ -19,14 +20,17 @@
         }
 
         function createWorkflow() {
-            alert(vm.workflowTitle);
+            
             var params = {
                 "title": vm.workflowTitle
             };
-            // var deferred = $q.defer();
+
             $http.post('workflows', params)
                 .success(function(data){
-                    console.log(data);
+                    vm.createdWorkflows.push({
+                        name: data.title,
+                        url: 'http://localhost:49339/Workflow/WorkflowDefinition.aspx?defid='+ data.id
+                    });
                 });
 
         }

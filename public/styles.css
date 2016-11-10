@@ -90,9 +90,21 @@ button {
     border-radius: 4px;
     transition: .3s;
     text-transform: uppercase;
+    font-weight: 600;
 }
 
 button:hover {
     cursor: pointer;
     font-size: 1.7em;
+}
+
+.workflows-label {
+    margin-top: 40px;
+    font-size: 2em;
+}
+
+a {
+    color: white;
+    font-weight: 600;
+    font-size: 1.5em;
 }

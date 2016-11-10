@@ -12,6 +12,14 @@
         <div class="button-container">   
             <button ng-click="vm.createWorkflow()">Add this thing to Qualtrax</button>
         </div>
+        <div ng-show="vm.createdWorkflows.length">
+            <div class="workflows-label">Created Workflows</div>
+            <ul>
+                <li ng-repeat="workflow in vm.createdWorkflows">
+                    <a href="{{workflow.url}}" target="_blank">{{workflow.name}}</a>
+                </li>
+            </ul>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.30/angular.min.js"></script>

@@ -3,7 +3,7 @@
     homeController.init = function (app) {
         
         app.get('*', function(req, res) {
-            res.sendFile('./public/index.html');
+            res.sendFile('index.html', { root: 'public/' });
         });
 
     };
