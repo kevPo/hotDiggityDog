@@ -31,6 +31,7 @@
                         name: data.title,
                         url: 'http://localhost:49339/Workflow/WorkflowDefinition.aspx?defid='+ data.id
                     });
+                    vm.workflowTitle = '';
                 });
 
         }
