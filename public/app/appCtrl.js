@@ -11,7 +11,11 @@
         var vm = this;
         vm.workflowTitle = '';
         vm.createWorkflow = createWorkflow;
+        vm.getWorkflowInstance = getWorkflowInstance;
         vm.createdWorkflows = [];
+        vm.workflowInstances = [];
+        vm.showDefinition = false;
+        vm.showTheDefinition = showTheDefinition;
 
         activate();
 
@@ -34,6 +38,24 @@
                     vm.workflowTitle = '';
                 });
 
+        }
+
+        function getWorkflowInstance() {
+
+            $http.get('workflows/' + vm.workflowTitle, {})
+                .success(function(data){
+                    vm.workflowInstances.push(data);
+                    vm.workflowTitle = '';
+                });
+        }
+
+        function showTheDefinition() {
+            vm.showDefinition = true;
+            $http.get('workflowsDefinitions/' + vm.workflowInstances[0].workflowDefinition.id, {})
+                .success(function(data){
+                    console.log(data);
+                    vm.workflowDefinition = data;
+                });
         }
     }
 })();

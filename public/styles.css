@@ -16,7 +16,7 @@ html {
 }
 
 .sub-logo {
-    font-size: 5em;
+    font-size: 4em;
     font-weight: 700;
     width: 100%;
     text-align: center;
@@ -99,12 +99,31 @@ button:hover {
 }
 
 .workflows-label {
-    margin-top: 40px;
+    color: #f7cb36;
+    text-align: center;
+    margin-top: 70px;
     font-size: 2em;
+    font-family: 'Baloo Paaji', cursive;
 }
 
 a {
     color: white;
     font-weight: 600;
     font-size: 1.5em;
+}
+
+.instances {
+    font-size: 2em;
+    color: white;
+    margin-bottom: 30px;
+}
+
+a.site-url {
+    font-size: 1em;
+}
+
+.instance-field {
+    color: #f7cb36;
+    font-weight: bold;
+    font-family: 'Baloo Paaji', cursive;
 }

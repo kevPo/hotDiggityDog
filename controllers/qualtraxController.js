@@ -26,6 +26,48 @@
                     res.send(body);
                 });
         });
+
+        app.get('/workflows/:instanceId', function(req, res) {
+            var instanceId = req.params.instanceId;
+            console.log(instanceId);
+            var path = req.query.path;
+            delete req.query["path"];
+            
+            request({
+                    method: 'GET',
+                    url: 'http://localhost:49339/api/workflows/' + instanceId, 
+                    headers: {
+                        "Authorization": "Bearer 6A602314-9213-44A7-9F96-9AD748447B7F",
+                        "User-Agent": "IntegrationTests",
+                        "Accept": "application/vnd.qualtrax.v1+json",
+                        "Content-Type": "application/json"
+                    }
+                }, function (error, response, body) {
+                    console.log(error);
+                    res.send(body);
+                });
+        });
+
+        app.get('/workflowsDefinitions/:instanceId', function(req, res) {
+            var instanceId = req.params.instanceId;
+            console.log(instanceId);
+            var path = req.query.path;
+            delete req.query["path"];
+            
+            request({
+                    method: 'GET',
+                    url: 'http://localhost:49339/api/workflows/definitions/' + instanceId, 
+                    headers: {
+                        "Authorization": "Bearer 6A602314-9213-44A7-9F96-9AD748447B7F",
+                        "User-Agent": "IntegrationTests",
+                        "Accept": "application/vnd.qualtrax.v1+json",
+                        "Content-Type": "application/json"
+                    }
+                }, function (error, response, body) {
+                    console.log(error);
+                    res.send(body);
+                });
+        });
         
     };
     

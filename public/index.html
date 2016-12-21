@@ -5,12 +5,12 @@
 <body ng-app="app" ng-controller="appCtrl as vm">
     <div class="flex-container">
         <div class="logo">Hot Diggity Dogs</div>
-        <div class="sub-logo">Workflow Creator</div>
+        <div class="sub-logo">Workflow Instance Retrieval Tool</div>
         <div class="input-container">
-            <input id="title" ng-model="vm.workflowTitle" placeholder="Enter yer workflow title here" type="text">
+            <input id="title" ng-model="vm.workflowTitle" placeholder="Workflow Instance ID Goes Here" type="text">
         </div>
         <div class="button-container">   
-            <button ng-click="vm.createWorkflow()">Add this thing to Qualtrax</button>
+            <button ng-click="vm.getWorkflowInstance()">Ask Qualtrax for my instance</button>
         </div>
         <div ng-show="vm.createdWorkflows.length">
             <div class="workflows-label">Created Workflows</div>
@@ -19,6 +19,29 @@
                     <a href="{{workflow.url}}" target="_blank">{{workflow.name}}</a>
                 </li>
             </ul>
+        </div>
+        <div class="instances" ng-show="vm.workflowInstances.length">
+            <div class="workflows-label">Here Ya Go</div>
+            <div ng-repeat="instance in vm.workflowInstances">
+                <div><span class="instance-field">ID:</span><span> {{ instance.id }}</span></div>
+                <div><span class="instance-field">Site URL:</span><span> <a class="site-url" href="{{ instance.siteUrl }}" target="blank">{{instance.siteUrl}}</a> </span></div>
+                <div><span class="instance-field">URL:</span><span> {{ instance.url }}</span></div>
+                <div><span class="instance-field">Expiration Date:</span><span> {{ instance.expirationDate }}</span></div>
+                <div><span class="instance-field">Expirations Left:</span><span> {{ instance.expirationsLeft }}</span></div>
+                <div><span class="instance-field">Active:</span><span> {{ instance.active }}</span></div>
+                <div><span class="instance-field">Initiator ID:</span><span> {{ instance.initiatorId }}</span></div>
+                <div><span class="instance-field">Original Initiator ID:</span><span> {{ instance.originalInitiatorId }}</span></div>
+                <div><span class="instance-field">Current Step ID:</span><span> {{ instance.currentStepId }}</span></div>
+                <div><span class="instance-field">Start Date:</span><span> {{ instance.startDate }}</span></div>
+                <div><span class="instance-field">End Date:</span><span> {{ instance.endDate }}</span></div>
+                <div><span class="instance-field">Workflow Definition ID:</span><span> {{ instance.workflowDefinition.id }}</span></div>
+                <div><span class="instance-field">Workflow Definition Site URL:</span><span> <a class="site-url" href="{{instance.workflowDefinition.siteUrl}}" target="blank">{{instance.workflowDefinition.siteUrl}}</a></span></div>
+                <div><span class="instance-field">Workflow Definition URL:</span><span ng-click="vm.showTheDefinition()"> {{instance.workflowDefinition.url}}</span></div>       
+                <div ng-show="vm.showDefinition">
+                    <div><span class="instance-field">Workflow Definition Title:</span><span> {{ vm.workflowDefinition.title }}</span></div>
+                    <div><span class="instance-field">Workflow Definition Description:</span><span> {{ vm.workflowDefinition.description }}</span></div>
+                </div>      
+            </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
